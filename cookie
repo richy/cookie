@@ -1,0 +1,24 @@
+import requests
+
+longstring = """\
+
+        __ __    __           
+_______|__|  | _|  | _____ __  
+\_  __ \  |  |/ /  |/ <   |  | \'s cookie checker
+ |  | \/  |    <|    < \___  | street fighter turbo edition
+ |__|  |__|__|_ \__|_ \/ ____|
+               \/    \/\/     
+"""
+
+print(longstring)
+
+rURL = input("enter url: ")
+
+r = requests.get(rURL)
+c = r.cookies
+i = c.items()
+
+if len(c) > 1:
+	print("found some cookies")
+elif len(c) < 1:
+	print("no cookies")
