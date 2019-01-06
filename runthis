@@ -1,0 +1,14 @@
+import os
+import time
+
+#import os for file reading and time for optional delay at end between each hit
+
+#this will run the script on each item in a list, and loop until end.
+
+with open('list_to_check.txt') as f:
+	for line in f:
+		os.system('python3 cookie.py ' + line)
+    
+    
+#optional 1 second delay between each hit, for rate-limiting and ip blocking.    
+		#time.sleep(1)
