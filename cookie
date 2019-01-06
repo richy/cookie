@@ -35,13 +35,13 @@ if len(r.cookies) < 1:
 	
 	#write to nocookies.txt that the url had no cookies returned. 'a' for append so it doesn't overwrite, adds to end, and adds a '\n' new line.
 	
-	f = open("nocookies.txt", "a")
+	f = open("cookies.txt", "a")
 	f.write("found cookie at " + rURL + "\n")
 	rURL = ""
 else:
 	print("cookie found - " + rURL)
 	
-	f = open("nocookies.txt", "a")
+	f = open("cookies.txt", "a")
 	f.write("no cookies found at " + rURL + "\n")
 	rURL = ""
 
