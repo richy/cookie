@@ -1,24 +1,48 @@
 import requests
 
+#optional sweet aol ascii thx to padillac
+
 longstring = """\
 
         __ __    __           
 _______|__|  | _|  | _____ __  
 \_  __ \  |  |/ /  |/ <   |  | \'s cookie checker
  |  | \/  |    <|    < \___  | street fighter turbo edition
- |__|  |__|__|_ \__|_ \/ ____|
+ |__|  |__|__|_ \__|_ \/ ____| 
                \/    \/\/     
 """
 
-print(longstring)
+print(longstring) 
 
-rURL = input("enter url: ")
+import requests
 
-r = requests.get(rURL)
-c = r.cookies
-i = c.items()
+#import system arguments, so when ran in terminal, sys.argv[1] is the first argument
+#eg running the script like 'python3 cookie.py somethinghere' will check 'somethinghere' as the first url.
 
-if len(c) > 1:
-	print("found some cookies")
-elif len(c) < 1:
-	print("no cookies")
+import sys 
+rURL = sys.argv[1]
+
+
+r = requests.post('' + rURL)
+
+	#if i wanna list each cookie and print it just to see what's returned, do this:
+	#for cookie in r.cookies:
+	#	print(cookie.__dict__)
+	#	print(cookie.secure)
+
+if len(r.cookies) < 1:
+	print("no cookies found - " + rURL)
+	
+	#write to nocookies.txt that the url had no cookies returned. 'a' for append so it doesn't overwrite, adds to end, and adds a '\n' new line.
+	
+	f = open("nocookies.txt", "a")
+	f.write("found cookie at " + rURL + "\n")
+	rURL = ""
+else:
+	print("cookie found - " + rURL)
+	
+	f = open("nocookies.txt", "a")
+	f.write("no cookies found at " + rURL + "\n")
+	rURL = ""
+
+	
