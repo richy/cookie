@@ -1,6 +1,7 @@
 import requests
 
 #optional sweet aol ascii thx to padillac
+#if running as batch (using runthis.py) then remove this as it'll flood you to death
 
 longstring = """\
 
